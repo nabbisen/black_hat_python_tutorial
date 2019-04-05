@@ -11,10 +11,10 @@ port = 0
 thread_max_num = 5
 
 def usage():
-    usage = """\
+    usage = """
 BHP Net Tool
 
-Usage: bh_netcat.py -t target_host -p port
+Usage: python bh_netcat.py -t target_host -p port
 -l --listen                       - listen on [host]:[port] for
                                     incoming connections
 -e --execute=file_to_run          - execute the given file upon
@@ -29,7 +29,7 @@ bh_netcat.py -t 192.168.0.1 -p 5555 -l -c
 bh_netcat.py -t 192.168.0.1 -p 5555 -l -u c:\\target.exe
 bh_netcat.py -t 192.168.0.1 -p 5555 -l e \"cat /etc/passwd\"
 echo 'ABCDEFGHI' | ./bh_netcat.py -t 192.168.11.12 -p 135
-"""
+    """
     print(usage)
     sys.exit(0)
 
