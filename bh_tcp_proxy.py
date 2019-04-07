@@ -98,9 +98,10 @@ def server_loop(local_host, local_port, remote_host, remote_port, receive_first)
     except:
         print("""
 [!!] Failed to listen on {}:{}
-[!!] Check for other listening sockets or correct permissiongs.
+[!!] Check for other listening sockets or correct permissions.
         """.format(local_host, local_port))
         sys.exit(0)
+    
     print("[*] Listening on {}:{}".format(local_host, local_port))
 
     server.listen(thread_max_num)
