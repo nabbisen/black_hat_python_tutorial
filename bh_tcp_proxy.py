@@ -2,15 +2,13 @@ import sys, socket, threading
 
 def hexdump(src, length=16):
     result = []
-    
     digits = 4 if isinstance(src, str) else 2
     for i in range(0, len(src), length):
         s = src[i:(i + length)]
-        hexa = b" ".join(["%0*X" % (digits, ord(x)) for x in s])
-        text = b"".join([x if 0x20 <= ord(x) < 0x7F else b"." for x in s])
-        result.append(b"%04X   %-*s   %s" % (i, length * (digits + 1), hexa, text))
-    
-    print(b"\n".join(result))
+        hexa = " ".join(map("{0:0>2X}".format, src))
+        text = "".join([chr(x) if 0x20 <= x < 0x7F else "." for x in s])
+        result.append("%04X   %-*s   %s" % (i, length * (digits + 1), hexa, text) )
+    return "\n".join(result)
 
 def receive_from(connection):
     timeout_seconds = 3
