@@ -4,6 +4,9 @@
 
 ```shell-session
 $ python -m venv ./venv
+
+$ # activate venv
+$ souce ./venv/activate.fish
 ```
 
 ### netcap
